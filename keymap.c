@@ -308,7 +308,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_on(l_r_layer);
             #ifdef BACKLIGHT_ENABLE
             if (keycode == TGL_LOW){
-                led_breathing_on(3, true);
+                led_breathing_on(4, true);
             } else if (keycode == TGL_RIS){
                 led_breathing_on(1, false);
             }
@@ -341,7 +341,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           } else {                         // レイヤーがトグルされていなければキーが押されている間はLED点灯
             #ifdef BACKLIGHT_ENABLE
               if (keycode == M_EMHL){
-                  led_breathing_on(3, true);
+                  led_breathing_on(4, true);
               } else if ((keycode == M_KHKR) || (keycode == M_KHRU)){
                   led_breathing_on(1, false);
               }
@@ -362,7 +362,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (keycode == FN2_TAB) {
                 led_breathing_on(2, true);
             } else {
-                led_breathing_on(5, true);
+                led_breathing_on(6, true);
             }
         }
        } else {
@@ -529,14 +529,14 @@ void x_finished_1 (qk_tap_dance_state_t *state, void *user_data) {
     case SINGLE_HOLD:                  // 長押しでLowerレイヤーをオンにする
         layer_on(_LOWER);
         #ifdef BACKLIGHT_ENABLE
-          led_breathing_on(3, true);
+          led_breathing_on(4, true);
         #endif
         break;
     case DOUBLE_TAP:                   // ダブルタップでLowerレイヤーをトグル
         layer_invert(_LOWER); 
         if (IS_LAYER_ON(_LOWER)){
             #ifdef BACKLIGHT_ENABLE
-              led_breathing_on(3, true);
+              led_breathing_on(4, true);
             #endif
             #ifdef AUDIO_ENABLE
               PLAY_SONG(layer_lock_on_song);
